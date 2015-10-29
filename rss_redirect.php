@@ -54,6 +54,13 @@ function SFM_pluginUpdates()
 	
 	if(!get_option("SFM_pluginVersion"))
 	{
+		$sql = "SHOW TABLES LIKE '".$wpdb->prefix."sfm_redirects'"; 
+		$tableExist = $wpdb->get_row($sql);
+		if(!empty($tableExist))
+		{
+			add_option("noticeSetup", "yes");
+		}
+		
 		/* Alter sf_redirect table */
 		$sql = "ALTER TABLE `".$wpdb->prefix."sfm_redirects` CHANGE `sf_feedid` `sf_feedid` VARCHAR( 255 ) NOT NULL"; 
 		$wpdb->query($sql);
@@ -68,5 +75,40 @@ function SFM_pluginUpdates()
 	
 	/*Add version*/
 	update_option("SFM_pluginVersion", '1.2');
+}
+add_action('admin_notices', 'sfm_admin_notice', 10);
+function sfm_admin_notice()
+{
+	
+	if(isset($_GET['page']) && $_GET['page'] == "sfsi-options")
+	{
+		$style = "overflow: hidden; margin:12px 3px 0px;";
+	}
+	else
+	{
+		$style = "overflow: hidden;"; 
+	}
+	if(get_option("noticeSetup") == "yes")
+	{ 
+		$url = "?sfm-dismiss-notice=true";
+		?>
+		<div class="updated" style="<?php echo $style; ?>">
+			<div class="alignleft" style="margin: 9px 0;color:red;">
+				<b>IMPORTANT:</b> Major bug fixed, please click on "Activate Redirect" again for all the feeds you want to redirect.
+			</div>
+			<p class="alignright">
+				<a href="<?php echo $url; ?>">Dismiss</a>
+			</p>
+		</div>
+	<?php }
+}
+add_action('admin_init', 'sfm_dismiss_admin_notice');
+function sfm_dismiss_admin_notice()
+{
+	if ( isset($_REQUEST['sfm-dismiss-notice']) && $_REQUEST['sfm-dismiss-notice'] == 'true' )
+	{
+		update_option( 'noticeSetup', "no" );
+		header("Location: ".site_url()."/wp-admin/admin.php?page=sfm-options-page");
+	}
 }
 ?>
