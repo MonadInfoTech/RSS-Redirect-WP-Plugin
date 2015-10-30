@@ -335,18 +335,21 @@ class sfmRedirectActions
 		$isFound="";
 		$textWidgetDatas=get_option('widget_text');
 		
-		foreach($textWidgetDatas as $widget_data)
+		if(!empty($textWidgetDatas))
 		{
-			if(
-				strpos($widget_data['text'],'http://feedburner.google.com/fb/a/mailverify') > 0 ||
-				strpos($widget_data['text'],'https://feedburner.google.com/fb/a/mailverify') > 0
-			)
+			foreach($textWidgetDatas as $widget_data)
 			{
-				return $isFound=1; exit;
-			}
-			else
-			{
-				$isFound=0; 
+				if(
+					strpos($widget_data['text'],'http://feedburner.google.com/fb/a/mailverify') > 0 ||
+					strpos($widget_data['text'],'https://feedburner.google.com/fb/a/mailverify') > 0
+				)
+				{
+					return $isFound=1; exit;
+				}
+				else
+				{
+					$isFound=0; 
+				}
 			}
 		}
 		return $isFound;
