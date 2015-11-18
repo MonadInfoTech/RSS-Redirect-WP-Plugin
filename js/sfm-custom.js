@@ -4,6 +4,9 @@ SFM( document ).ready(function( $ )
 	/* activate redirection */    
    	SFM('body').on('click', '.activate_redirect', function()
 	{
+		/*Add Overlay*/
+		SFM('body').append("<div class='sfrd_loading_wrapper'>"+SFM(".sfrd_overlayGear").html()+"</div>");
+		
    		var  redirection_type=SFM(this).attr('red_type');
    		var element=SFM(this);
         
@@ -61,6 +64,9 @@ SFM( document ).ready(function( $ )
                 dataType:'json',
                 success:function (res)
                 {
+					/*Remove overlay*/
+					SFM(".sfrd_loading_wrapper").remove();
+					
 					if(res.response=='success')
                     {
                         /* process the feeds in backend */

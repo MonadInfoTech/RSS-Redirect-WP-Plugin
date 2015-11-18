@@ -3,7 +3,7 @@ Contributors: s-feeds
 Tags: Feed, Feeds, s-feeds, RSS, Feedburner, Feedburner alternative, RSS feeds, newsletter, subscription, newsletters, email newsletter, email newsletters 
 Requires at least: 3.0
 Tested up to: 4.3.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -177,3 +177,24 @@ ul#adminmenu li.toplevel_page_sfm-options-page a.toplevel_page_sfm-options-page 
 .wp-picker-container input.wp-color-picker[type="text"]{
     width: 65px !important; 
 }
+body.wp-admin
+{
+	position: relative;
+}
+.sfrd_loading_wrapper
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	opacity: 0.5;	
+}
+.sfrd_loading_wrapper img {
+    left: 50%;
+    position: relative;
+    top: 45%;
+	width: 80px;
+}

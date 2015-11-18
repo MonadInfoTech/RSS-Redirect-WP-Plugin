@@ -64,7 +64,6 @@ foreach ($mainfeed_data as $feedData)
 ?>
 
 <!-- main admin section area -->
-
 <div class="sfrd_wapper">
 	<div class="sfrd_wapper_conatnt">	
         <h2>Welcome to the SpecificFeeds RSS Redirect plugin</h2>
@@ -287,5 +286,9 @@ foreach ($mainfeed_data as $feedData)
         <p class="sfrd_bottom">All RSS-subscribers who subscribed to your Feedburner feed will now be redirected to your original feed, which in turn redirects to your feed on  <strong>SpecificFeeds.</strong></p>
         <a href="mailto:support@specificfeeds.com" title="Need help or have questions? Get in touch with us">Need help or have questions? Get in touch with us</a>
     </div>
+</div>
+
+<div class="sfrd_overlayGear" style="display: none;">
+	<img src="<?php echo SFM_PLUGURL ."/images/gear.gif"; ?>" />
 </div>
 <!-- END instruction pop-up-->
