@@ -49,7 +49,7 @@ class sfmInstaller {
 		dbDelta($sql);
         
 		update_option('sfm_activate', 1);
-		update_option('SFM_pluginVersion', 1.2);
+		update_option('SFM_pluginVersion', 1.3);
         update_option('sfm_permalink_structure', get_option('permalink_structure'));
     }
     /* uninstall  plugin  */
