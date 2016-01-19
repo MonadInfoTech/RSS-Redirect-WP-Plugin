@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/feedburner-alternative-and-rss-redirec
 Description: Switch from Feedburner to the better and FREE service SpecificFeeds with just one click 
 Author: SpecificFeeds
 Author URI: http://www.specificfeeds.com
-Version: 1.3
+Version: 1.4
 License: GPLv2
 */
 
@@ -44,7 +44,7 @@ function sfmUnistaller()
   $wpdb->query('DROP TABLE IF EXISTS `'.$wpdb->prefix.'sfm_redirects`');
 }
 
-if(!get_option("SFM_pluginVersion") || get_option("SFM_pluginVersion") < 1.3 )
+if(!get_option("SFM_pluginVersion") || get_option("SFM_pluginVersion") < 1.4 )
 {
 	add_action("init", "SFM_pluginUpdates");
 }
@@ -74,8 +74,9 @@ function SFM_pluginUpdates()
 	}
 	
 	/*Add version*/
-	update_option("SFM_pluginVersion", '1.3');
+	update_option("SFM_pluginVersion", '1.4');
 }
+
 add_action('admin_notices', 'sfm_admin_notice', 10);
 function sfm_admin_notice()
 {
@@ -102,6 +103,7 @@ function sfm_admin_notice()
 		</div>
 	<?php }
 }
+
 add_action('admin_init', 'sfm_dismiss_admin_notice');
 function sfm_dismiss_admin_notice()
 {
@@ -110,5 +112,17 @@ function sfm_dismiss_admin_notice()
 		update_option( 'noticeSetup', "no" );
 		header("Location: ".site_url()."/wp-admin/admin.php?page=sfm-options-page");
 	}
+}
+
+function sfm_get_bloginfo($url)
+{
+	$web_url = get_bloginfo($url);
+	
+	//Block to use feedburner url
+	if (preg_match("/(feedburner)/im", $web_url, $match))
+	{
+		$web_url = site_url()."/feed";
+	}
+	return $web_url;
 }
 ?>

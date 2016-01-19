@@ -1,7 +1,7 @@
 <?php
 define('SFM_CONNECT_LINK','http://www.specificfeeds.com/?');
 define(SFM_BETTER_FEED,"http://www.specificfeeds.com/feedburner-alternative");
-define(SFM_MAIN_FEED,get_bloginfo('rss2_url'));
+define(SFM_MAIN_FEED,sfm_get_bloginfo('rss2_url'));
 
 $sfmRedirectObj = new sfmRedirectActions();
 $feeds_data = $sfmRedirectObj->sfmListActiveRss();

@@ -128,7 +128,7 @@ class sfmRedirectActions
 			{
 				case "main_rss"    :
 					$existence = $this->checkFeedExist("main_rss");
-					$web_url = html_entity_decode(get_bloginfo('rss2_url'));
+					$web_url = html_entity_decode(sfm_get_bloginfo('rss2_url'));
 					$data['feed_url'] = $web_url;
 				break;		     
 				case "comment_rss" :
@@ -281,7 +281,7 @@ class sfmRedirectActions
 			switch($_POST['feed_type'])
 			{
 				case "main_rss" :
-					$reverse_url=html_entity_decode(get_bloginfo('rss2_url'));
+					$reverse_url=html_entity_decode(sfm_get_bloginfo('rss2_url'));
 				break;		     
 				case "comment_rss" :
 					$reverse_url = html_entity_decode(get_bloginfo('comments_rss2_url'));
@@ -369,7 +369,7 @@ class sfmRedirectActions
 				switch($stored_feed->feed_type)
 				{
 					case "main_rss" :
-						$reverse_url=get_bloginfo('rss2_url');
+						$reverse_url=sfm_get_bloginfo('rss2_url');
 						$data_array['feed_id']=$stored_feed->sf_feedid;
 						$data_array['feed_url']= $reverse_url;   
 					break;		     
@@ -436,7 +436,7 @@ class sfmRedirectActions
 		if(is_feed() &&  strpos($_SERVER['HTTP_USER_AGENT'], "Specificfeeds- http://www.specificfeeds.com" )<=0) :
 			$feed_type="custom";
 			
-			if($this->sfmgetCurrentURL()== get_bloginfo('rss2_url')) :
+			if($this->sfmgetCurrentURL()== sfm_get_bloginfo('rss2_url')) :
 				$feed_type="main";
 			endif;
 			

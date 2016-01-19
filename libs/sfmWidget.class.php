@@ -103,30 +103,63 @@ class sfmWidget extends WP_Widget {
 	    $form_id="news-".$form_id;
 	    /* get the feedid of blog rss */
 	   //echo 'SELECT sf_feedid  from '.$wpdb->prefix.$this->SFM_REDIRECTION_TABLE." where feed_type='main_rss' OR blog_rss='".html_entity_decode(get_bloginfo('rss2_url'))."'";
-	    $get_feed=$wpdb->get_row('SELECT sf_feedid  from '.$wpdb->prefix.$this->SFM_REDIRECTION_TABLE." where feed_type='main_rss' OR blog_rss='".html_entity_decode(get_bloginfo('rss2_url'))."'");
+	    $get_feed=$wpdb->get_row('SELECT sf_feedid  from '.$wpdb->prefix.$this->SFM_REDIRECTION_TABLE." where feed_type='main_rss' OR blog_rss='".html_entity_decode(sfm_get_bloginfo('rss2_url'))."'");
 	  
 	    ob_start();
-	    ?>
-	 
+	    $action = "https://www.specificfeeds.com/widgets/subscribeWidget/".$get_feed->sf_feedid."/8";
+	?>
 	<div class="sfmNewsLetter"  >
-		<form action="" method="post" target="popupwindow" id="<?php echo $form_id; ?>" accept-charset="utf-8" onsubmit="return processfurther(this);">
-			<span class="sfrd_inputHolder"><input type="email" class="feedemail" name="data[Widget][email]" id="widgetemail" required value=""  /></span>
-			<span class="sfrd_buttonHolder"><input type="submit" name="commit"  value="Subscribe"  /></span>
+		<form action="<?php echo $action; ?>" method="post" target="popupwindow" id="<?php echo $form_id; ?>" accept-charset="utf-8" onsubmit="return processfurther(this);">
+			<span class="sfrd_inputHolder">
+            	<input type="email" class="feedemail" name="data[Widget][email]" id="widgetemail" required value=""  />
+            </span>
+			<span class="sfrd_buttonHolder">
+            	<input type="submit" name="commit"  value="Subscribe"  />
+            </span>
 			<input type="hidden" class="feedid" value="<?php echo $get_feed->sf_feedid; ?>" name="data[Widget][feed_id]" id="sffeed_id"/>
 			<input id="sffeedtype" type="hidden" class="feedtype" value="8" name="data[Widget][feedtype]">
-			<script type="text/javascript" src="http://www.specificfeeds.com/newwidgets/emailjs"></script>
-			<script type="text/javascript"> init_box('<?php echo $form_id; ?>'); </script>
+			<script type="text/javascript">
+				function processfurther() {
+					var feed_id = document.getElementById("sffeed_id").value;
+					var feedtype = document.getElementById("sffeedtype").value;
+					var email = document.getElementById('widgetemail').value;
+					var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+					if ((email != "Enter your email") && (filter.test(email)))
+					{
+						if (feedtype == '1')
+						{
+							var url = "https://www.specificfeeds.com/widgets/nextstep";
+							window.open(url, "popupwindow", "scrollbars=yes,width=350,height=150");
+						}
+						if (feedtype == '8')
+						{
+							var url = "https://www.specificfeeds.com/widgets/setfilter/" + feed_id;
+							window.open(url, "popupwindow", "scrollbars=yes,width=760,height=460");
+							/*
+							var url = "https://www.specificfeeds.com/widgets/subscribe/"+feed_id+"/"+feedtype;
+							window.open(url, "popupwindow", "scrollbars=yes,width=760,height=460");
+							*/
+						}
+						return true;
+					}
+					else
+					{
+						alert('Please enter email address');
+						document.getElementById('widgetemail').focus();
+						return false;
+					}
+				}
+			</script>
 		</form>    
 	    </div>   
-	    
-	    
-	<?php
-	$frontForm= ob_get_clean();
-	return $frontForm;exit;
+		<?php
+		$frontForm = ob_get_clean();
+		return $frontForm;exit;
 	}
 	
 	/*Update the widget */ 
-	function update( $new_instance, $old_instance ) {
+	function update( $new_instance, $old_instance )
+	{
 		$instance = $old_instance;
 		//Strip tags from title and name to remove HTML 
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -140,7 +173,8 @@ class sfmWidget extends WP_Widget {
 	}
 	
 	/* Set up some default widget settings. */
-	function form( $instance ) {
+	function form( $instance )
+	{
 		$defaults = array( 'title' =>"" );
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		

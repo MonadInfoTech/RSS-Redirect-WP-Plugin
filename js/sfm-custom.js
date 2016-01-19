@@ -56,8 +56,8 @@ SFM( document ).ready(function( $ )
 				var data={action:'ActRedirect',rtype:redirection_type,curl :custom_url }
             break;
         }
-       /* send request to server */ 
-       SFM.ajax({
+		/* send request to server */ 
+       	SFM.ajax({
                 url: ajax_object.ajax_url,
                 type:'post',
                 data: data,
