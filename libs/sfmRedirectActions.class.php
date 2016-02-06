@@ -211,6 +211,7 @@ class sfmRedirectActions
 					$respons->connect_string = $this->SFM_CONNECT_LINK.base64_encode(
 						"userprofile=wordpress&feed_id=".$respons->feed_id
 					);
+					$record_id = (isset($_POST['record_id']) && !empty($_POST['record_id']))? $_POST['record_id'] : '';
 					$data = $wpdb->query("UPDATE $table SET redirect_status=1 where rid=$existence");
 					$request_data = array(
 						'rq_type'	=>	$_POST['rtype'],

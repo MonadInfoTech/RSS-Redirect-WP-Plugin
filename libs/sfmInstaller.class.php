@@ -48,9 +48,11 @@ class sfmInstaller {
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta($sql);
         
+		add_option('SFM_installDate',date('Y-m-d h:i:s'));
+		add_option('SFM_RatingDiv', "no");
 		update_option('sfm_activate', 1);
-		update_option('SFM_pluginVersion', 1.4);
-        update_option('sfm_permalink_structure', get_option('permalink_structure'));
+		update_option('SFM_pluginVersion', 1.5);
+		update_option('sfm_permalink_structure', get_option('permalink_structure'));
     }
     /* uninstall  plugin  */
     public function sfmUninstaller()
