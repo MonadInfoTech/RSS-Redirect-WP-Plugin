@@ -71,7 +71,7 @@ class sfmInstaller {
 	 
         if(get_option('sfm_activate',false)==1)
         {
-            echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>SpecificFeeds Feedmaster</b> Plugin. Please go to the <a href=\"admin.php?page=sfm-options-page\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfm_activate',0);
+            echo "<div class=\"updated\" >" . "<p>Thank you for installing the <b>Feedburner alternative and RSS redirect</b> Plugin. Please go to the <a href=\"admin.php?page=sfm-options-page\">plugin's settings page </a> to configure it. </p></div>"; update_option('sfm_activate',0);
         }
         $path=pathinfo($_SERVER['REQUEST_URI']);
         update_option('sfm_activate',0);		
