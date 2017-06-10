@@ -198,3 +198,36 @@ ul#adminmenu li.toplevel_page_sfm-options-page a.toplevel_page_sfm-options-page 
     top: 45%;
 	width: 80px;
 }
+/*new claiming form css*/
+form#calimingOptimizationForm {
+    margin-top: 25px;
+    text-align: center;
+}
+form#calimingOptimizationForm input {
+    color: rgb(128, 73, 81);
+    padding: 10px;
+    text-align: center;
+    width: 485px;
+}
+form#calimingOptimizationForm a
+{
+    margin-top: 11px;
+}
+form#calimingOptimizationForm > p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 11px;
+    padding: 0;
+}
+form#calimingOptimizationForm p a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: green !important;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+}

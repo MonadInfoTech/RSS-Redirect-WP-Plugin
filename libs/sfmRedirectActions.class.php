@@ -341,8 +341,8 @@ class sfmRedirectActions
 			foreach($textWidgetDatas as $widget_data)
 			{
 				if(
-					strpos($widget_data['text'],'http://feedburner.google.com/fb/a/mailverify') > 0 ||
-					strpos($widget_data['text'],'https://feedburner.google.com/fb/a/mailverify') > 0
+					strpos(@$widget_data['text'],'http://feedburner.google.com/fb/a/mailverify') > 0 ||
+					strpos(@$widget_data['text'],'https://feedburner.google.com/fb/a/mailverify') > 0
 				)
 				{
 					return $isFound=1; exit;

@@ -51,7 +51,7 @@ class sfmInstaller {
 		add_option('SFM_installDate',date('Y-m-d h:i:s'));
 		add_option('SFM_RatingDiv', "no");
 		update_option('sfm_activate', 1);
-		update_option('SFM_pluginVersion', 1.6);
+		update_option('SFM_pluginVersion', 1.7);
 		update_option('sfm_permalink_structure', get_option('permalink_structure'));
     }
     /* uninstall  plugin  */
