@@ -50,6 +50,9 @@ Then go to plugin settings page and click on "Apply redirect" for all feeds you 
 
 == Changelog ==
 
+= 1.9 =
+* Text changes in popup box in plugin's admin page
+
 = 1.1 =
 * Upgraded to latest standards
 
