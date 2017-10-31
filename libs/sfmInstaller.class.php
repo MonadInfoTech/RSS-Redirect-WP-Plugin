@@ -3,11 +3,11 @@ class sfmInstaller {
   
 	public static function SFMgetInstance()
   	{
-		static $instance = NULL;
+		  static $instance = NULL;
 
-		if (is_null($instance)) {
-			$instance = new self();
-		}
+		  if (is_null($instance)) {
+			 $instance = new self();
+		  }
 
 		return $instance;
 	}
@@ -32,14 +32,14 @@ class sfmInstaller {
        
         $sql="CREATE TABLE IF NOT EXISTS `".$wpdb->prefix."sfm_redirects`(
           `rid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-		  `feedSetup_url` varchar(255)  NOT NULL,
+		      `feedSetup_url` varchar(255)  NOT NULL,
           `blog_rss` text  NOT NULL,
           `sf_feedid` varchar(255)  NOT NULL,
           `feed_url` text NOT NULL,
           `feed_subUrl` text NOT NULL,
           `id_on_blog` int(10) NOT NULL,
           `feed_type` varchar(255) NOT NULL,
-	  	  `verification_code` varchar(255) NOT NULL,
+	  	    `verification_code` varchar(255) NOT NULL,
           `redirect_status` int(10) NOT NULL,
            PRIMARY KEY (`rid`),
            UNIQUE KEY `id` (`rid`)
@@ -51,8 +51,9 @@ class sfmInstaller {
 		add_option('SFM_installDate',date('Y-m-d h:i:s'));
 		add_option('SFM_RatingDiv', "no");
 		update_option('sfm_activate', 1);
-		update_option('SFM_pluginVersion', 1.8);
+		update_option('SFM_pluginVersion', 1.9);
 		update_option('sfm_permalink_structure', get_option('permalink_structure'));
+
     }
     /* uninstall  plugin  */
     public function sfmUninstaller()
@@ -61,7 +62,7 @@ class sfmInstaller {
       
       	delete_option('sfm_activate');
       	delete_option('sfm_permalink_structure');
-		delete_option('SFM_pluginVersion');
+		    delete_option('SFM_pluginVersion');
       	$wpdb->query('DROP TABLE IF EXISTS `'.$wpdb->prefix.'sfm_redirects`');
     }
     /* display message on activation */

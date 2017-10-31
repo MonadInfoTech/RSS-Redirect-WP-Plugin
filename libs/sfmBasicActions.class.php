@@ -29,7 +29,7 @@ class sfmBasicActions
        	add_action( 'widgets_init', array(&$this,'register_sfm_widgets'));
        	/* load all classes */
         $sfmRedirectObj=new sfmRedirectActions();
-		$sfmShortCode= new sfmShortCodes();
+		    $sfmShortCode= new sfmShortCodes();
     }
    
     /* create plugin menu in admin */

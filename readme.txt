@@ -3,7 +3,7 @@ Contributors: s-feeds
 Tags: Feed, Feeds, s-feeds, RSS, Feedburner, Feedburner alternative, RSS feeds, newsletter, subscription, newsletters, email newsletter, email newsletters 
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 1.8
+Stable tag: 1.9
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,5 +58,5 @@ Then go to plugin settings page and click on "Apply redirect" for all feeds you 
 
 == Upgrade Notice ==
 
-= 1.1 =
+= 1.9 =
 * Upgraded to latest standards - please update

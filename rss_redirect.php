@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/feedburner-alternative-and-rss-redirec
 Description: Switch from Feedburner to the better and FREE service SpecificFeeds with just one click 
 Author: SpecificFeeds
 Author URI: http://www.specificfeeds.com
-Version: 1.8
+Version: 1.9
 License: GPLv2
 */
 
@@ -45,7 +45,7 @@ function sfmUnistaller()
   $wpdb->query('DROP TABLE IF EXISTS `'.$wpdb->prefix.'sfm_redirects`');
 }
 
-if(!get_option("SFM_pluginVersion") || get_option("SFM_pluginVersion") < 1.8 )
+if(!get_option("SFM_pluginVersion") || get_option("SFM_pluginVersion") < 1.9 )
 {
 	add_action("init", "SFM_pluginUpdates");
 }
@@ -75,7 +75,7 @@ function SFM_pluginUpdates()
 	}
 	
 	/*Add version*/
-	update_option("SFM_pluginVersion", '1.8');
+	update_option("SFM_pluginVersion", '1.9');
 	add_option('SFM_installDate',date('Y-m-d h:i:s'));
 	add_option('SFM_RatingDiv', "no");
 }
