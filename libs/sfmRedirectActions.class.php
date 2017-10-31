@@ -441,6 +441,9 @@ class sfmRedirectActions
 				$feed_type="main";
 			endif;
 			
+			if(stripos($_SERVER['HTTP_USER_AGENT'], "Specificfeeds- http://www.specificfeeds.com" )!== false)
+				$feed_type="custom";
+
 			if(isset($wp_query->query['withcomments']) || $wp_query->query['feed']=="comments-rss2" ) : 
 				$withcomments=1;
 				$feed_type="comment";
