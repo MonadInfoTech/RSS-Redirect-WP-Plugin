@@ -134,6 +134,7 @@
 .sfrd_popup_contant .sfrd_right{ float:right; width:566px;}
 
 .sfrd_popup_contant .sfrd_row1{ display:block; clear:both; padding-top:58px;}
+.sfrd_popup_contant .sfrd_row1 h2{margin-bottom: 30px;font-size: 24px;}
 .sfrd_popup_contant .sfrd_left1{ float:right; width:335px; height:135px; display:table; position:relative;}
 .sfrd_popup_contant .sfrd_left1 .sfrd_arrow1{position: absolute; left: -365px; bottom:0px;}
 .sfrd_popup_contant .sfrd_contant_middle1{  line-height:135px;  vertical-align:middle; display: table-cell;}

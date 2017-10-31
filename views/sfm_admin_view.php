@@ -322,6 +322,7 @@ foreach ($mainfeed_data as $feedData)
 <div class="sfrd_popup" style="display: none;">
     <a href="javascript:void(0);" title="Close" class="sfrd_close close_incPopUp"><img src="<?php echo SFM_PLUGURL ?>images/close.jpg" alt="Close"></a>
     <div class="sfrd_popup_contant">
+        
         <h1>How do I redirect my Feedburner feed?</h1>
         <div class="sfrd_row">
             <div class="sfrd_left">
@@ -336,6 +337,9 @@ foreach ($mainfeed_data as $feedData)
             <div class="sfrd_right"><img src="<?php echo SFM_PLUGURL ?>images/screen1.jpg" alt=""></div>
         </div>
         <div class="sfrd_row1">
+
+            <h2>Before you do the following, make sure you downloaded all email subscribers!</h2>
+
             <div class="sfrd_right1"><img src="<?php echo SFM_PLUGURL ?>images/screen2.jpg" alt=""></div>
             <div class="sfrd_left1">
             <div class="sfrd_arrow1"><img src="<?php echo SFM_PLUGURL ?>images/arrow2.png" alt=""></div>
@@ -346,6 +350,8 @@ foreach ($mainfeed_data as $feedData)
             </div>
             </div>
         </div>
+
+
         <p class="sfrd_bottom">All RSS-subscribers who subscribed to your Feedburner feed will now be redirected to your original feed, which in turn redirects to your feed on  <strong>SpecificFeeds.</strong></p>
         <a href="mailto:support@specificfeeds.com" title="Need help or have questions? Get in touch with us">Need help or have questions? Get in touch with us</a>
     </div>
